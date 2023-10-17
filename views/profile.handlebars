@@ -1,0 +1,294 @@
+{{> preloader}}
+{{> loggedNavbar}}
+
+<body>
+  <main>
+
+    <!-- ***Add a Home modal*** (toggle)-->
+    <div
+      class='modal fade'
+      id='offerHomeModal'
+      tabindex='-1'
+      role='dialog'
+      aria-labelledby='exampleModalLabel'
+      aria-hidden='true'>
+      <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+
+          <div class='modal-header'>
+            <h5
+              class='modal-title d-flex'
+              id='exampleModalLabel'
+              style='justify-content:center; margin-left: 35%; font-family:Poppins; color:var(--dark-green-color);'
+            >Offer a Home</h5>
+            <button
+              type='button'
+              class='btn-close'
+              data-bs-dismiss='modal'
+              aria-label='Close'
+            ></button>
+          </div>
+
+          <div class='modal-body'>
+            <p>Please provide us with the following details so we can share your home with your future roomie!</p>
+            <form class='offer-form'>
+              <!--Type OF Home Input-->
+              <div class='form-group form-offer' style='margin-bottom: 3%;'>
+                <label
+                  for='signupInputUserName'
+                  style='width: 250px; text-align: left; margin-bottom: 2%; font-weight:500;'
+                >Home Type
+                </label>
+
+                <div class='form-check'>
+                  <input class='form-check-input typeOfHome_A' type='radio' name='typeOfHomeRadio' id='typeOgHomeA'
+                    value='Apartment' />
+                  <label class='form-check-label' for='typeOfHomeA' style="color:#706c6c;">
+                    Apartment
+                  </label>
+                </div>
+
+                <div class='form-check'>
+                  <input class='form-check-input typeOfHome_B' type='radio' name='typeOfHomeRadio' id='typeOfHomeB'
+                    value='House' />
+                  <label class='form-check-label' for='typeOfHomeB' style="color:#706c6c;">
+                    House
+                  </label>
+                </div>
+              </div>
+
+              <!--Pet Friendly Input-->
+
+              <label
+                for='signupInputUserName'
+                style='text-align: left; margin-top: 4%; margin-bottom: 2%; font-weight:500;'
+              >Will you allow pets?
+              </label>
+
+              <div class='form-check form-switch' style="margin-bottom: 2%;">
+                <input class='form-check-input' type='checkbox' value='' id='checkPetFriendly' />
+                <label class='form-check-label' for='checkPetFriendly' style="color:#706c6c;">
+                  Pet Friendly
+                </label>
+              </div>
+              
+              <div class='mb-3' style='margin-top: 4%;'>
+                <label
+                  for='formFile'
+                  class='form-label'
+                  style='font-weight:500; margin-bottom:0%'
+                >Home Image</label>
+                <p style="margin-bottom:0%">Upload at least one photo of your home.</p>
+                <input class='form-control' type='file' id='formFile' />
+              </div>
+
+              <div>
+                <label for='numerofroomies' style='width: 250px; text-align: left; margin-bottom: 1%; font-weight:500;'>
+                Number of Roomies 
+                </label>
+                <input id="roomiesNum" class="form-control form-login" placeholder="Roomies"
+                  style="justify-content: center; text-align: left; align-items: center; margin-bottom: 2%; ">
+              </div>
+              <div style="margin-top:4%; margin-bottom:4%;">
+                <label for='numerofroomies' style='width: 250px; text-align: left; margin-bottom: 0%; font-weight:500;'>
+                Message
+                </label>
+                <p style="margin-bottom:0%">You can write a small message for your potential roomies here.</p>
+                <textarea type="text" id="messageroom" name="review" row="3" class="form-control md-textarea" style="""font-family: Poppins; color: var(--grey-color)"></textarea>
+              </div>
+              
+              <label for='signupInputUserName' style='text-align: left; margin-right:80%;font-weight:500; margin-bottom:0%'>Location
+              </label>
+              <p>Please search for a location and choose the option that best of your home's.</p>
+              <nav class="navbar">
+                <form class="form-inline">
+                  <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Enter the location of your home"
+                      aria-label="Search" id="mySrch">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-success" type="search" id="LocSrchBtn">Search</button>
+                    </div>
+                  </div>
+                </form>
+              </nav>      
+
+                <div class="optionsBox">
+                    <h5 id="Select" style="font-family: Poppins; font-size: 16px;"></h5>
+                    <div class="optionsx" id="0"></div>
+                    <div class="optionsx" id="1"></div>
+                    <div class="optionsx" id="2"></div>
+                    <div class="optionsx" id="3"></div>
+                    <div class="optionsx" id="4"></div>
+                    <div class="optionsx" id="5"></div>
+                    <div class="optionsx" id="6"></div>
+                </div>  
+
+              <button
+                type='submit'
+                value='Upload'
+                id='offerSubmit'
+                class='btn btn-primary btn-submit-modal'
+                style='margin-top:3%;'
+              >Submit</button>
+
+            </form>
+
+            <!--multer Test from -->
+            {{! <form action='/api/offer/uploadFile' enctype='multipart/form-data' method='POST'>
+              <input type='file' class='admin__input' id='myFile' name='myFile' />
+              <input class='admin__submit' type='submit' />
+            </form> }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHANGE PASSWORD MODAL -->
+    <div class="modal fade" id="chPwdModal" tabindex="-1" aria-hidden="true" style="margin-top: 5%;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="padding-top: 2%;">
+            <div class="row d-flex" style="padding-top: 2%;">
+              <h5 class="modal-title" style="justify-content:center; text-align:center; font-family:Poppins; color:var(--dark-green-color); margin-left: 45%">Change your password</h5>
+            </div>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <input type="email" class="form-control form-login" id="email" placeholder="Email"
+                  style="justify-content: center; text-align: left; align-items: center; margin-bottom: 2%; ">
+                {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small> --}}
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control form-login" id="currentPwd" placeholder="Current Password"
+                  style="justify-content: center; text-align: left; align-items: center; margin-bottom: 2%; ">
+                {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small> --}}
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control form-login" id="newPwd" placeholder="New Password"
+                  style=" text-align: left; margin-bottom: 2%; ">
+                {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small> --}}
+              </div>
+              <div class="form-group" style="border-radius: 20%;">
+                <input type="password" class="form-control form-login" id="newPwd2" placeholder="Retype New Password"
+                  style="text-align: left; margin-bottom: 2%;">
+              </div>
+              <button type="submit" class="btn btn-primary btn-submit-modal changePwSubmit" style="margin-top: 3%; margin-left: 22%" id="signUpSubmit">Save
+                Changes</button>
+            </form>
+          </div>
+          {{!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> --}}
+        </div>
+      </div>
+    </div>
+
+    <!-- CHANGE PASSWORD MODAL -->
+
+    <!-- DELETE ACCOUNT MODAL -->
+    <div class="modal fade" id="delAccModal" tabindex="-1" aria-hidden="true" style="margin-top: 8%;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row" style="padding-top: 2%;">
+            <h5 class="modal-title" style="justify-content:center; text-align:center; font-family:Poppins; color:var(--dark-green-color);">Delete your Account</h5>
+            <p style="padding-top:2%; justify-content:center; margin: auto; max-width:400px; font-size:14px; font-family:Poppins; color:var(--grey-color)">
+              We're sorry to see you go. Please consider telling us what we can do better to have you back soon.
+            </p>
+            </div>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <input type="review" class="form-control form-login" id="goodbye" placeholder="Review"
+                  style="justify-content: center; text-align: left; align-items: center; margin-bottom: 2%; ">
+                {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small> --}}
+              </div>
+              <div class="row" style="padding-top: 2%;">
+                <p style="padding-top:2%; justify-content:center; margin: auto; max-width:450px; font-size:14px; font-family:Poppins; color:var(--grey-color); text-align:center;">
+                  Please enter your email:
+                </p>
+              </div>              
+              <div class="form-group">
+                <input type="email" class="form-control form-login" id="userEmail" placeholder="user@email.com"
+                  style="justify-content: center; text-align: left; align-items: center; margin-bottom: 2%; ">
+                {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small> --}}
+              </div>
+              <button type="submit" class="btn btn-primary btn-submit-modal deleteSubmit" style="margin-top: 3%; margin-left: 23%;" id="byeSubmit">Save
+                Changes</button>
+            </form>
+          </div>
+          {{!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> --}}
+        </div>
+      </div>
+    </div>
+
+    <!-- DELETE ACCOUNT MODAL -->
+
+    <!-- ***"profile homepage"*** -->
+    <div class='container-fluid' style='margin-bottom: 5%; margin-top:5%;'>
+      <div class='container text-center'>
+        <div class='row align-items-start'>
+
+
+          <!--user image, offer buttons -->
+          <div class="row d-flex">
+            <div class='col-4' style='margin-left: 5%;'>
+              <img src='../images/profile-picture.jpeg' class='img-fluid circle-image' alt='homepage image'/> 
+            </div>
+            <div class='col-6' style="margin-left:5%">
+            <h3 class="display-3"
+              style='text-align:center; font-family: Poppins; font-weight: 500; font-size: 40px; color:var(--dark-color); margin-bottom: 6%'>
+              {{user}}'s Profile</h3>
+            
+            <div  style="margin-top: 3%;margin-bottom: 10%; display: flex;justify-content: space-evenly;"> {{!--class="row " d-flex --}}
+              
+                <button type='button' class='btn btn-outline-white btn-dark btn-signup btn-sm' data-bs-toggle='modal' data-bs-target='#offerHomeModal' style='font-family: Poppins; border-radius: 0; margin-right: auto; margin-left:auto; margin-top:3%;'
+                  >Offer a Home</button>
+                <button type='button' class='btn btn-outline-white btn-dark btn-signup btn-sm' style='font-family: Poppins; border-radius: 0; margin-right: auto; margin-left:auto; margin-top:3%;'>
+                  <a href="/api/profile/userOffers" style="text-decoration:none; color: var(--light-color)">See my offers</a></button>
+            </div>
+            
+            <form style='padding-left:10%; margin-top: 2%'>
+              <h2 class="h1-responsive text-center " style="font-family: Lora; color: var(--dark-green-color); margin-bottom:5%">Your account</h2>
+
+              <div class='mb-3' style="display: flex; ">
+                <i class="fas fa-user-circle icon-xl" style="font-size: 2rem; margin-right: 4%"></i>
+                <h5>{{user}}</h5>
+              </div>
+
+              <div class='mb-3' style="display: flex; ">
+                <i class="fas fa-envelope" style="font-size: 2rem; margin-right: 4%"></i>
+                <h5>{{profMail}}</h5>
+              </div>
+
+              {{!-- <div class='d-grid gap-2 d-md-block button-group' style="margin-top:5%"> --}}
+                <button class='btn btn-dark' type='button' style='padding-left:1.5rem; padding-right:1.5rem; margin-bottom:3%'
+                  data-bs-toggle="modal" data-bs-target="#chPwdModal">
+                  Change Password</button><br>
+                <button class='btn btn-secondary' type='button' style='padding-left:1.5rem; padding-right:1.5rem;'
+                  data-bs-toggle="modal" data-bs-target="#delAccModal" id="deletebtn">
+                  Delete Account</button>
+              {{!-- </div> --}}
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src='../../js/offers.js'></script>
+  <script src='../../js/geocodeApi.js'></script>
+  <script src='../../js/profile.js'></script>
+
+</body>

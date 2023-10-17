@@ -1,0 +1,52 @@
+{{> preloader}}
+{{> nologgedNabvar}}
+
+<body>
+    <main>
+        <div class="container" style="margin-bottom: 10%;">
+            <section class="mb-4">
+                <h2 class="h1-responsive text-center my-5" style="font-family: Lora; color: var(--dark-green-color); font-size: 42px">User Reviews</h2>
+                <p class="text-center w-responsive mx-auto mb-5" style="font-family: Poppins; color: var(--dark-color); max-width: 550px; font-size: 20px">Reviews of other users!</p>
+                <div id="review">
+                <section class="reviews row" style="justify-content: center;">
+                    {{#each reviews as |review|}}
+                    {{> review-details}}
+                    {{/each}}
+                </section>
+                </div>
+                <div >
+                {{#if loggedIn}}
+                <div class="rev-btn d-flex justify-content-center" style="text-align: right; margin:20px">
+                <button type="button" class='btn btn-outline-white btn-dark btn-submit' data-bs-toggle="modal" data-bs-target="#reviewModal" style="font-family: Poppins; margin-top: 5%">Submit a review!</button>
+                </div>
+                {{/if}}
+                </div>
+                <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 5%;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row" style="padding-top: 2%; margin-left: 25%; ">
+                        <h5 class="modal-title" id="exampleModalLabel" style=" font-family:Poppins; color:var(--dark-green-color);">Write your review!</h5>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form> 
+                        <div class="form-group">
+                            <label for="subject" style="font-family: Poppins; color: var(--dark-green-color)">Name</label>
+                            <input type="name" class="form-control form-login" id="nameInput" aria-describedby="reviewnameInput" placeholder="Write your name" style="text-align: left; margin-bottom: 2%;">
+                        </div>
+                        <div class="form-group">
+                            <label for="" style="font-family: Poppins; color: var(--dark-green-color)">Write your review!</label>
+                            <textarea type="text" id="revInput" name="review" row="3" class="form-control md-textarea form-login" style="font-family: Poppins; color: var(--grey-color)"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit-modal" style="font-family:Poppins; margin: 3%; margin-left: 23%" id="reviewSubmit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+    </main>
+<script src="../js/reviewSubmit.js"></script>
+
+</body>

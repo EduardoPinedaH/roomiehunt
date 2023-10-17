@@ -1,0 +1,21 @@
+[
+    {
+        "name": "Katy",
+        "description": "The page helped me get a home super quick and is super easy to us!",
+        "date_created": "2023-06-21",
+        "user_id": 3
+    },
+    {
+        "name": "John",
+        "description": "This place is great for finding a home when you have a pet",
+        "date_created": "2023-06-21",
+        "user_id": 2
+    },
+    {
+        "name": "Fred",
+        "description": "Roomiefinder is super easy to use to offer a place for someone to stay",
+        "date_created": "2023-06-21",
+        "user_id": 1
+    }
+
+]
